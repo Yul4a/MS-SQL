@@ -13,12 +13,12 @@ create table Teachers
 ID int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 EmploymentDate date NOT NULL, 
 Check (EmploymentDate > '01.01.1990'),
-"Name" nvarchar(max) not null unique,
+"Name" nvarchar(100) not null unique,
 Premium money not null default(0),
 Check (Premium > = 0),
 Salary money not null,
 Check (Salary > 0),
-Surname nvarchar(max) not null unique
+Surname nvarchar(100) not null unique
 )
 
 create table Groups
