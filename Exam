@@ -1,7 +1,6 @@
 # 1. Показать все книги, количество страниц в которых больше
 500, но меньше 650.
 
-
 select Name, Pages
 from Books
 where Pages between 500 and 650
@@ -9,7 +8,6 @@ where Pages between 500 and 650
 
 #2. Показать все книги, в которых первая буква названия либо
 «А», либо «З».
-
 
 select Name
 from Books
@@ -50,7 +48,6 @@ select Name
 from Books
 where Name not like 'a'
 
-
 #▷▷Тематика, но, чтобы не «Программирование».
 
 select Name
@@ -80,3 +77,17 @@ where Quantity <= 8
 select Name
 from Shops 
 where CountryId <>1 and CountryId <>2
+
+#8. Показать следующую информацию в два столбца (числа
+#в правом столбце приведены в качестве примера):
+#▷▷Количество авторов: 14
+#▷▷Количество книг: 47
+#▷▷Средняя цена продажи: 85.43 грн.
+#▷▷Среднее количество страниц: 650.6.
+
+select 'Количество авторов', count(*) from Authors;
+select 'Количество книг', count(*) from Books;
+select 'Средняя цена продажи', avg(Price) from Sales;
+select 'Среднее количество страниц', avg(Pages) from Books;
+
+
