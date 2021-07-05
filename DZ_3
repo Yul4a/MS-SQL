@@ -1,0 +1,71 @@
+#DZ_3(1)
+select Name, Financing, ID
+from Departments;
+
+#DZ_3(2)
+select Name as "GroupsName", Rating as"GroupsRating"
+from Groups;
+
+#DZ_3(3)
+select Surname, (Salary/Premium)*100 as Sootn1, (Premium/(Salary+Premium))*100 as Sootn2
+from Teachers;
+
+#DZ_3(4)
+select 'The dean of faculty '+Name+' is '+Dean as "The dean of..."
+from Faculties
+
+#DZ_3(5)
+select Surname, Salary
+from Teachers
+where salary > 1050
+
+#DZ_3(6)
+select Name, Financing
+from Departments
+where Financing > 25000 or Financing < 11000
+
+#DZ_3(7)
+select ID, Name, Dean
+from Faculties
+where Name <> 'Computer Science'
+
+#DZ_3(8)
+select Surname, position
+from Teachers
+where IsProfessor = 0
+
+#DZ_3(9)
+select Surname, position, Salary, Premium
+from Teachers
+where Premium > 160 and Premium < 550
+
+#DZ_3(10)
+select Surname, Salary
+from Teachers
+where IsAssistant = 1
+
+#DZ_3(11)
+select Surname, position
+from Teachers
+where EmploymentData > = '01.01.2000'
+
+#DZ_3(12)
+select Name as Name of Department
+from Departments
+where Name >= 'Software Development'
+order by Name
+
+#DZ_3(13)
+select Surname
+from Teachers
+where (Salary + Premium) <= 1200 
+
+#DZ_3(14)
+select Name
+from Groups
+where  Year = 5 and (Rating <= 4 and Rating >= 2) 
+
+#DZ_3(15)
+select Surname, Salary
+from Teachers
+where IsAssistant = 1 and (Salary < 550 and Premium < 200)
