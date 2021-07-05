@@ -1,0 +1,82 @@
+# 1. Показать все книги, количество страниц в которых больше
+500, но меньше 650.
+
+
+select Name, Pages
+from Books
+where Pages between 500 and 650
+
+
+#2. Показать все книги, в которых первая буква названия либо
+«А», либо «З».
+
+
+select Name
+from Books
+where Name like 'АЗ%'
+
+№3. Показать все книги жанра «Детектив», количество проданных
+книг более 30 экземпляров.
+
+select Books.Name as Name
+	Themes.Name as Themes_Name
+from Books
+where Themes.Name = 'Детектив'
+
+# №4. Показать все книги, в названии которых есть слово «Microsoft
+», но нет слова «Windows».
+
+select Name
+from Books
+where Name like '%Microsoft%' and Name not like '%Windows%'
+
+#5. Показать все книги (название, тематика, полное имя автора
+в одной ячейке), цена одной страницы которых меньше
+65 копеек.
+
+select Books.Name, Themes.Id, Authors.Id, 
+from Books, Themes, Authors
+	join Themes on Books.ThemeId = Themes.Id
+where Price/Pages < 65 
+
+
+#6. Показать все книги, название которых состоит из 4 слов.
+
+
+#7. Показать информацию о продажах в следующем виде:
+#Название книги, но, чтобы оно не содержало букву «А».
+
+select Name
+from Books
+where Name not like 'a'
+
+
+#▷▷Тематика, но, чтобы не «Программирование».
+
+select Name
+from Themes
+where Name <> 'Программирование'
+
+#▷▷Автор, но, чтобы не «Герберт Шилдт».
+
+select Name
+from Authors 
+where Name not like '%Герберт%' and Surname not like '%Шилдт%'
+
+#▷▷Цена, но, чтобы в диапазоне от 10 до 20 гривен.
+
+select Price
+from Books 
+where Price between 10 and 20
+
+#▷▷Количество продаж, но не менее 8 книг.
+
+select Quantity
+from Sales 
+where Quantity <= 8
+
+#▷▷Название магазина, который продал книгу, но он не должен быть в Украине или России.
+
+select Name
+from Shops 
+where CountryId <>1 and CountryId <>2
